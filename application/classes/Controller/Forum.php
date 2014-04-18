@@ -9,6 +9,6 @@ class Controller_Forum extends Controller_Base
 {
     public function action_index()
     {
-        echo 'Masz index. Widoki rób w katalogu /views/forum(jeśli brak to taki utwórz)';
+        echo 'Masz index. Widoki rób w katalogu /views/forum(jeśli brak to taki utwórz)<br />hehe';
     }
 } 
