@@ -33,5 +33,23 @@ class Model_Category extends ORM
         )
     );
 
-
+    public function is_child()
+    {
+        $check = DB::select(array(
+            DB::expr('Count(*)'),
+            'num'
+        ))
+                   ->from('caegory_to_category')
+                   ->where('child_id', '=', $this->id)
+                   ->execute()
+                   ->get('num');
+        if($check==1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
