@@ -60,7 +60,10 @@ class Controller_Blog extends Controller_Base
 
         $this->template->content = View::factory('blog/show_article')
                                        ->bind('article', $article)
-                                       ->bind('posts', $posts);
+                                       ->bind('posts', $posts)
+                                       ->bind('admin', $this->admin)
+                                       ->bind('moderator', $this->moderator)
+                                       ->bind('user', $this->user);
         if($this->request->post())
         {
             $post = ORM::factory('Post');

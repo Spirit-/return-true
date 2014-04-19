@@ -18,6 +18,52 @@
             </h6>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-12 text-right">
+            <?php if($user->id == $article->author_id):?>
+            <div class="btn-group text-right">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    Akcje autora <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </div>
+            <?php endif?>
+            <?php if($moderator):?>
+            <div class="btn-group text-right">
+                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                    Akcje Moderatora <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </div>
+            <?php endif?>
+            <?php if($admin):?>
+            <div class="btn-group text-right">
+                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                    Akcje admina <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </div>
+            <?php endif?>
+        </div>
+    </div>
 </div>
 <div class="panel panel-default">
 <?php if($posts!=NULL):?>

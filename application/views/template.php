@@ -19,7 +19,7 @@
 
 
 
-<nav class="navbar navbar-fixet-top navbar-default" role="navigation">
+<nav class="navbar navbar-fixed-top navbar-default" role="navigation">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
             <span class="sr-only">Toggle navigation</span>
@@ -60,7 +60,7 @@
         </ul>
     </div>
 </nav>
-
+<div style="padding-top: 60px"></div>
 <div class="container-fluid">
     <div class="row">
 
