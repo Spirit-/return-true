@@ -31,18 +31,18 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="/">Strona Główna</a></li>
+          <li><a href="/">Blog</a></li>
+          <li><a href="/forum">Forum</a></li>
           <li class="disabled"><a href="#">Inna Podstrona</a></li>
-          <li class="disabled"><a href="#">Inna Podstrona</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-            <?php if(Auth::instance()->logged_in()):?>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Zalogowany jako <b><?php echo Auth::instance()->get_user()->username?></b><b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="/user/edit">Edycja profilu</a></li>
-                    <li class="divider"></li>
-                    <li><a href="/auth/logout">Wyloguj</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <?php if(Auth::instance()->logged_in()):?>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Zalogowany jako <b><?php echo Auth::instance()->get_user()->username?></b><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/user/edit">Edycja profilu</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/auth/logout">Wyloguj</a></li>
 
                 </ul>
             </li>
@@ -63,10 +63,12 @@
 
 <div class="container-fluid">
     <div class="row">
+
+        <?php if(strtolower(Request::current()->controller())=='blog'):?>
         <div class="col-md-2">
             <div class="well">
                 <ul class="nav nav-pills nav-stacked">
-                <li class="disabled"><a href="#">Lewe Menu 1</a></li>
+                <li><a href="/blog/article/add">Dodaj artykuł</a></li>
                 <li class="disabled"><a href="#">Lewe Menu 2</a></li>
                 <li class="disabled"><a href="#">Lewe Menu 3</a></li>
                 <li class="disabled"><a href="#">Lewe Menu 4</a></li>
@@ -77,6 +79,9 @@
 
 
         <div class="col-md-10">
+            <?php else:?>
+            <div class="col-md-12">
+            <?php endif?>
             <?php if(Cookie::get('success'))
             {
                 echo "<span style='color: green'>".Cookie::get('success')."</span>";

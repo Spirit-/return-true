@@ -137,6 +137,18 @@ Kohana::modules(array(
  * defaults for the URI.
  */
 Cookie::$salt='asfgqwfAF';
+
+Route::set('add_article', 'blog/article/add')
+     ->defaults(array(
+         'controller' => 'blog',
+         'action' => 'addarticle'
+     ));
+
+Route::set('show_article', 'blog/article/<id>')
+     ->defaults(array(
+         'controller' => 'blog',
+         'action' => 'showarticle'
+     ));
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
 		'controller' => 'blog',
