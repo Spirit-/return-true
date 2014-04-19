@@ -17,7 +17,7 @@ class Model_Category extends ORM
             'foreign_key' => 'category_id'
         ),
         'child' => array(
-            'category',
+            'model'=>'category',
             'through' => 'category_to_category',
             'foreign_key' => 'parent_id',
             'far_key' => 'child_id'
@@ -26,7 +26,7 @@ class Model_Category extends ORM
 
     protected $_belongs_to = array(
         'parent' => array(
-            'category',
+            'model'=>'category',
             'foreign_key' => 'child_id',
             'far_key' => 'parent_id',
             'through' => 'category_to_category'
