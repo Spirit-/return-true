@@ -9,6 +9,7 @@ class Controller_Forum extends Controller_Base
 {
     public function action_index()
     {
-        echo 'Masz index. Widoki rób w katalogu /views/forum(jeśli brak to taki utwórz)<br />hehe';
+        $categories = ORM::factory('Category')->find_all();
+	$this->template->content= View::factory('forum/index')->bind('categories', $categories);
     }
 } 
