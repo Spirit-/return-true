@@ -1,2 +1,0 @@
-a huj. 
-wlum wlum
