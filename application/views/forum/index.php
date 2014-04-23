@@ -19,7 +19,7 @@ foreach($categories as $c):
                             ?>
                                 <div>
                                    <h4>
-                                       <a href = "forum/<?php echo $child->id ?>">
+                                       <a href = "forum/forum/<?php echo $child->id ?>">
                                            <?php echo $child->name;?>
                                        </a>
                                    </h4>
