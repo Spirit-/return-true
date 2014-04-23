@@ -19,10 +19,17 @@ class Controller_Forum extends Controller_Base
     }
     public function action_topic()
     {
-        echo $this->request->param('id');
         $topic_info = ORM::factory('Topic',$this->request->param('id'));
-        $first_post = ORM::factory('Posts')->where('topic_id','=',$this->request->param('id'))->find();
-        $this->template->content= View::factory('forum/thread')->bind('topic_info', $topic_info);
-        $this->template->content= View::factory('forum/thread')->bind('first_post', $first_post);
+        $first_post = ORM::factory('Post')
+                ->where('topic_id','=',$this->request->param('id'))
+                ->where('first','=',1)
+                ->find();
+        $posts = ORM::factory('Post')->where('topic_id','=',$this->request->param('id'))->find_all();
+        $thread_view = View::factory('forum/thread');
+        $thread_view->topic_info = $topic_info;
+        $thread_view->first_post = $first_post;
+        $thread_view->posts = $posts;
+        $this->template->content= $thread_view;
+
     }
 } 
