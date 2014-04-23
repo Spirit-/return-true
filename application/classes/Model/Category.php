@@ -39,7 +39,7 @@ class Model_Category extends ORM
             DB::expr('Count(*)'),
             'num'
         ))
-                   ->from('caegory_to_category')
+                   ->from('category_to_category')
                    ->where('child_id', '=', $this->id)
                    ->execute()
                    ->get('num');
