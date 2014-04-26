@@ -23,9 +23,10 @@ class Controller_Base extends Controller_Template {
         $this->user=Auth::instance()->get_user();
 
 //        die(var_Dump($this->request->uri()));
-        if(!$this->user && !in_array(strtolower($this->request->controller()), array('auth', 'blog')))
+        if(!$this->user && !in_array(strtolower($this->request->controller()), array('auth', 'blog', 'forum')))
         {
-            $this->redirect('auth');
+            if($this->action != 'index' && $this->controller != 'auth')
+                $this->redirect('auth');
         }
 
         if($this->user && $this->request->uri()=='auth/index')
