@@ -68,11 +68,12 @@ class Controller_Auth extends Controller_Base
 //            die(var_dump($post));
             if($post->check())
             {
-                $user->register($_POST);
+                $user->values($_POST);
+                $this->redirect('auth/login');
             }
             else
             {
-                $errors= $post->errors('register');
+                $errors= $post->errors('register', $_POST);
 
             }
 

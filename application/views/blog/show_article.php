@@ -9,7 +9,8 @@
             <strong><?php echo $article->title?></strong>
         </div>
         <div class="panel-body text-left">
-            <?php echo nl2br($article->content)?>
+
+            <?php echo nl2br($article->BBcode())?>
         </div>
         <div class="panel-footer text-left">
             <h6>
@@ -18,6 +19,7 @@
             </h6>
         </div>
     </div>
+    <?php if(isset($user)):?>
     <div class="row">
         <div class="col-md-12 text-right">
             <?php if($user->id == $article->author_id):?>
@@ -26,7 +28,7 @@
                     Akcje autora <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                    <li><a href="#">Action</a></li>
+                    <li><a href="/blog/article/edit/<?php echo $article->id?>">Edytuj artykuł</a></li>
                     <li><a href="#">Another action</a></li>
                     <li><a href="#">Something else here</a></li>
                     <li class="divider"></li>
@@ -40,7 +42,7 @@
                     Akcje Moderatora <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                    <li><a href="#">Action</a></li>
+                    <li><a href="/blog/article/edit/<?php echo $article->id?>">Edytuj artykuł</a></li>
                     <li><a href="#">Another action</a></li>
                     <li><a href="#">Something else here</a></li>
                     <li class="divider"></li>
@@ -54,7 +56,7 @@
                     Akcje admina <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                    <li><a href="#">Action</a></li>
+                    <li><a href="/blog/article/edit/<?php echo $article->id?>">Edytuj artykuł</a></li>
                     <li><a href="#">Another action</a></li>
                     <li><a href="#">Something else here</a></li>
                     <li class="divider"></li>
@@ -64,6 +66,7 @@
             <?php endif?>
         </div>
     </div>
+    <?endif?>
 </div>
 <div class="panel panel-default">
 <?php if($posts!=NULL):?>

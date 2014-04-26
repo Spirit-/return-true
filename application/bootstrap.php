@@ -144,6 +144,12 @@ Route::set('add_article', 'blog/article/add')
          'action' => 'addarticle'
      ));
 
+Route::set('edit_article', 'blog/article/edit/<id>')
+     ->defaults(array(
+         'controller' => 'blog',
+         'action' => 'editarticle'
+     ));
+
 Route::set('show_article', 'blog/article/<id>')
      ->defaults(array(
          'controller' => 'blog',

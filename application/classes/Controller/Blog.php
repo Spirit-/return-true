@@ -75,4 +75,18 @@ class Controller_Blog extends Controller_Base
         }
     }
 
+    public function action_editarticle()
+    {
+        $article = ORM::factory('Article', $this->request->param('id'));
+        $this->template->content = View::factory('blog/edit_article')
+                                       ->bind('article', $article);
+        if($this->request->post())
+        {
+            $article->title = $_POST['title'];
+            $article->content = $_POST['content'];
+            $article->save();
+            $this->redirect('blog/article/' . $article->id);
+        };
+    }
+
 }

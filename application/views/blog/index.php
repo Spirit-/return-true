@@ -18,7 +18,7 @@ foreach($articles as $article):?>
                         if(strlen($article->content)<=128)
                             echo $article->content;
                         else
-                            echo substr($article->content, 0, 128) . '... (Czytaj więcej<span class="glyphicon glyphicon-arrow-right"></span>)';
+                            echo substr($article->content, 0, 128) . '(...)<br />(<a href="/blog/article/'.$article->id.'">Czytaj więcej<span class="glyphicon glyphicon-arrow-right"></span></a>)';
                     ?>
                 </div>
             </div>
