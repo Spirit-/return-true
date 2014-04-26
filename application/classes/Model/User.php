@@ -19,8 +19,6 @@ class Model_User extends Model_Auth_User
         $this->values($array);
         $this->save();
         $this->add('roles', ORM::factory('role', array('name' => 'login')));
-//        $this->save();
-//        return Auth::instance()->login($array['username'], $array['password']);
     }
 
     public function complete_login()

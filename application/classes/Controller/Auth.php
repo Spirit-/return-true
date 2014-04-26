@@ -49,27 +49,29 @@ class Controller_Auth extends Controller_Base
         if($this->request->post())
         {
             $post= Validation::factory($_POST)
-                ->rule('username', 'not_empty')
-                ->rule('username', 'max_length', array(':value', '16'))
-                ->rule('username', 'min_length', array(':value', '3'))
-                ->rule('username', 'regex', array(':value', '([A-Za-z0-9])'))
-                ->rule('password', 'regex', array(':value', '([a-zA-Z0-9\.\-\_])'))
-                ->rule('password', 'min_length', array(':value', '6'))
-                ->rule('password', 'max_length', array(':value', '12'))
-                ->rule('password', 'not_empty')
-                ->rule('email', 'email')
-                ->rule('email', 'not_empty')
-                ->rule('re_password', 'not_empty')
-                ->rule('re_password', 'matches', array(':value', ':field', 'password'))
-                ->rule('nick', 'not_empty')
-                ->rule('nick', 'max_length', array(':value', '16'))
-                ->rule('nick', 'min_length', array(':value', '3'))
-                ->rule('nick', 'regex', array(':value', '([A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓ0-9\.\-\_\ ])'));
+                ->rule('username', 'not_empty');
+//                ->rule('username', 'max_length', array(':value', '16'))
+//                ->rule('username', 'min_length', array(':value', '3'))
+////                ->rule('username', 'regex', array(':value', '([A-Za-z0-9])'))
+////                ->rule('password', 'regex', array(':value', '([a-zA-Z0-9\.\-\_])'))
+//                ->rule('password', 'min_length', array(':value', '6'))
+//                ->rule('password', 'max_length', array(':value', '12'))
+//                ->rule('password', 'not_empty')
+//                ->rule('email', 'email')
+//                ->rule('email', 'not_empty')
+//                ->rule('re_password', 'not_empty')
+//                ->rule('re_password', 'matches', array(':value', ':field', 'password'))
+//                ->rule('nick', 'not_empty')
+//                ->rule('nick', 'max_length', array(':value', '16'))
+//                ->rule('nick', 'min_length', array(':value', '3'));
+//                ->rule('nick', 'regex', array(':value', '([A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓ0-9\.\-\_\ ])'));
 //            die(var_dump($post));
             if($post->check())
             {
-                $user->values($_POST);
-                $this->redirect('auth/login');
+                $user->register($_POST);
+                Auth::instance()
+                    ->login($_POST['username'], $_POST['password']);
+                $this->redirect('/');
             }
             else
             {
