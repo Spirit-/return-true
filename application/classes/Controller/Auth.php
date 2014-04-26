@@ -65,7 +65,6 @@ class Controller_Auth extends Controller_Base
                 ->rule('nick', 'max_length', array(':value', '16'))
                 ->rule('nick', 'min_length', array(':value', '3'))
                 ->rule('nick', 'regex', array(':value', '([A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓ0-9\.\-\_\ ])'));
-//            die(var_dump($post));
             if($post->check())
             {
                 $user->register($_POST);
