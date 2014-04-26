@@ -25,7 +25,7 @@ class Controller_Base extends Controller_Template {
 //        die(var_Dump($this->request->uri()));
         if(!$this->user && !in_array(strtolower($this->request->controller()), array('auth', 'blog', 'forum')))
         {
-            if($this->action != 'index' && $this->controller != 'auth')
+//            if($this->action != 'index' && $this->controller != 'auth')
                 $this->redirect('auth');
         }
 
